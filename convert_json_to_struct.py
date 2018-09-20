@@ -31,9 +31,9 @@ def conv_list(jlist, new_k, k) :
 	elif isinstance(item, list) :
 		pass
 	elif isinstance(item, dict) :
-		print(list_fmt.format(space * level, new_k, "struct{", k))
+		print("%s%s\t[]struct{" % (space * level, new_k))
 		conv(item)
-		print("%s}" % (space * level))
+		print("%s}\t`json:\"%s\"`" % (space * level, k))
 	else :
 		pass
 
@@ -57,9 +57,9 @@ def conv(jsonstr) :
 		elif isinstance(v, list) :
 			conv_list(v, new_k, k)
 		elif isinstance(v, dict) :
-			print("%s%s\tstruct{\t\t`json:\"%s\"`" % (space * level, new_k, k))
+			print("%s%s\tstruct{" % (space * level, new_k))
 			conv(v)
-			print("%s}" % (space * level))
+			print("%s}\t`json:\"%s\"`" % (space * level, k))
 		else :
 			pass
 
@@ -81,10 +81,10 @@ if __name__ == "__main__" :
       "comments_url": "https://api.github.com/repos/dudd/github-issues-tools/issues/1/comments",
       "events_url": "https://api.github.com/repos/dudd/github-issues-tools/issues/1/events",
       "html_url": "https://github.com/dudd/github-issues-tools/issues/1",
-      "id": 361655547,
-      "node_id": "MDU6SXNzdWUzNjE2NTU1NDc=",
+      "id": 362009510,
+      "node_id": "MDU6SXNzdWUzNjIwMDk1MTA=",
       "number": 1,
-      "title": "test issue",
+      "title": "first",
       "user": {
         "login": "dudd",
         "id": 5847073,
@@ -116,11 +116,11 @@ if __name__ == "__main__" :
       ],
       "milestone": null,
       "comments": 0,
-      "created_at": "2018-09-19T09:21:51Z",
-      "updated_at": "2018-09-19T09:21:51Z",
+      "created_at": "2018-09-20T03:57:35Z",
+      "updated_at": "2018-09-20T03:57:35Z",
       "closed_at": null,
       "author_association": "OWNER",
-      "body": "For test",
+      "body": "test",
       "score": 1.0
     }
   ]
