@@ -1,7 +1,9 @@
 #!/usr/bin/python3
+"""
+Convert json string to golang struct.
+"""
 
-import os
-import json
+import os, json
 
 level = 0
 space = "    "
@@ -12,6 +14,9 @@ def normallize(name) :
 	return name.capitalize()
 
 def conv_list(jlist, new_k, k) :
+"""
+	convert list, don't handle two-dimensional or multidimensional list.
+"""
 	global space, level
 	item = jlist[0]
 	if isinstance(item, str) or isinstance(item, unicode):
@@ -28,10 +33,8 @@ def conv_list(jlist, new_k, k) :
 		print(list_fmt.format(space * level, new_k, "struct{", k))
 		conv(item)
 		print("%s}" % (space * level))
-		
 	else :
 		pass
-
 
 def conv(jsonstr) :
 
@@ -58,7 +61,6 @@ def conv(jsonstr) :
 			print("%s}" % (space * level))
 		else :
 			pass
- 
 
 	if level == 1 :
 		print("}")
