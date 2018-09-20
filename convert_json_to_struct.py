@@ -14,9 +14,9 @@ def normallize(name) :
 	return name.capitalize()
 
 def conv_list(jlist, new_k, k) :
-"""
+	"""
 	convert list, don't handle two-dimensional or multidimensional list.
-"""
+	"""
 	global space, level
 	item = jlist[0]
 	if isinstance(item, str) or isinstance(item, unicode):
