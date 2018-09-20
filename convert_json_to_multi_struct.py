@@ -40,6 +40,7 @@ def conv_list(jlist, struct_name, key_name, old_key) :
 def conv(jsonstr, struct_name) :
 
 	global structs, fmt, space
+	if struct_name in structs.keys() : return
 	structs[struct_name] = "type %s struct {\n" % struct_name
 
 	for k, v in jsonstr.items() :
