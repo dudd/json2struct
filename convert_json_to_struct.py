@@ -70,62 +70,59 @@ def conv(jsonstr) :
 
 if __name__ == "__main__" :
 	s = """
-{
-  "total_count": 1,
-  "incomplete_results": false,
-  "items": [
-    {
-      "url": "https://api.github.com/repos/dudd/github-issues-tools/issues/1",
-      "repository_url": "https://api.github.com/repos/dudd/github-issues-tools",
-      "labels_url": "https://api.github.com/repos/dudd/github-issues-tools/issues/1/labels{/name}",
-      "comments_url": "https://api.github.com/repos/dudd/github-issues-tools/issues/1/comments",
-      "events_url": "https://api.github.com/repos/dudd/github-issues-tools/issues/1/events",
-      "html_url": "https://github.com/dudd/github-issues-tools/issues/1",
-      "id": 362009510,
-      "node_id": "MDU6SXNzdWUzNjIwMDk1MTA=",
-      "number": 1,
-      "title": "first",
-      "user": {
-        "login": "dudd",
-        "id": 5847073,
-        "node_id": "MDQ6VXNlcjU4NDcwNzM=",
-        "avatar_url": "https://avatars0.githubusercontent.com/u/5847073?v=4",
-        "gravatar_id": "",
-        "url": "https://api.github.com/users/dudd",
-        "html_url": "https://github.com/dudd",
-        "followers_url": "https://api.github.com/users/dudd/followers",
-        "following_url": "https://api.github.com/users/dudd/following{/other_user}",
-        "gists_url": "https://api.github.com/users/dudd/gists{/gist_id}",
-        "starred_url": "https://api.github.com/users/dudd/starred{/owner}{/repo}",
-        "subscriptions_url": "https://api.github.com/users/dudd/subscriptions",
-        "organizations_url": "https://api.github.com/users/dudd/orgs",
-        "repos_url": "https://api.github.com/users/dudd/repos",
-        "events_url": "https://api.github.com/users/dudd/events{/privacy}",
-        "received_events_url": "https://api.github.com/users/dudd/received_events",
-        "type": "User",
-        "site_admin": false
-      },
-      "labels": [
+[
+  {
+    "url": "https://api.github.com/repos/dudd/github-issues-tools/issues/1",
+    "repository_url": "https://api.github.com/repos/dudd/github-issues-tools",
+    "labels_url": "https://api.github.com/repos/dudd/github-issues-tools/issues/1/labels{/name}",
+    "comments_url": "https://api.github.com/repos/dudd/github-issues-tools/issues/1/comments",
+    "events_url": "https://api.github.com/repos/dudd/github-issues-tools/issues/1/events",
+    "html_url": "https://github.com/dudd/github-issues-tools/issues/1",
+    "id": 362009510,
+    "node_id": "MDU6SXNzdWUzNjIwMDk1MTA=",
+    "number": 1,
+    "title": "first",
+    "user": {
+      "login": "dudd",
+      "id": 5847073,
+      "node_id": "MDQ6VXNlcjU4NDcwNzM=",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/5847073?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/dudd",
+      "html_url": "https://github.com/dudd",
+      "followers_url": "https://api.github.com/users/dudd/followers",
+      "following_url": "https://api.github.com/users/dudd/following{/other_user}",
+      "gists_url": "https://api.github.com/users/dudd/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/dudd/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/dudd/subscriptions",
+      "organizations_url": "https://api.github.com/users/dudd/orgs",
+      "repos_url": "https://api.github.com/users/dudd/repos",
+      "events_url": "https://api.github.com/users/dudd/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/dudd/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
 
-      ],
-      "state": "open",
-      "locked": false,
-      "assignee": null,
-      "assignees": [
+    ],
+    "state": "open",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
 
-      ],
-      "milestone": null,
-      "comments": 0,
-      "created_at": "2018-09-20T03:57:35Z",
-      "updated_at": "2018-09-20T03:57:35Z",
-      "closed_at": null,
-      "author_association": "OWNER",
-      "body": "test",
-      "score": 1.0
-    }
-  ]
-}
+    ],
+    "milestone": null,
+    "comments": 0,
+    "created_at": "2018-09-20T03:57:35Z",
+    "updated_at": "2018-09-20T03:57:35Z",
+    "closed_at": null,
+    "author_association": "OWNER",
+    "body": "test"
+  }
+]
 """
 
 	j = json.loads(s)
+	while isinstance(j, list):
+		j = j[0]
 	conv(j)
